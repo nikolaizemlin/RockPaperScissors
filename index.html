@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Rock Paper Scissors Part 1</title>
+    
+</head>
+<body>
+    <!-- We have to put this at the end of our document to ensure the user-text
+             span exists when we try to access it. -->
+    <script type="text/javascript">
+        // Let's start by grabbing a reference to the <span> below.
+        var userText = document.getElementById("user-text");
+
+        var game = ["p", "s", "r"];
+        var win = 0
+        var loss = 0
+        var tie = 0
+        // Next, we give JavaScript a function to execute when onkeyup event fires.
+        document.onkeyup = function (event) {
+            // userText.textContent = event.key;
+            var userGuess = event.key;
+            console.log(userGuess)
+            var randomItem = game[Math.floor(Math.random() * game.length)];
+            console.log(randomItem);
+            if (userGuess == randomItem) {
+                tie++
+                console.log("tie", tie);
+            }
+            else if (userGuess === "r" && randomItem === "s") {
+                win++
+                console.log("win", win);
+            }
+            else if (userGuess === "p" && randomItem === "r") {
+                win++
+                console.log("win", win);
+            }
+            else if (userGuess === "r" && randomItem === "p") {
+                loss++
+                console.log("loss", loss);
+            }
+            else if (userGuess === "s" && randomItem === "r") {
+                loss++
+                console.log("loss", loss);
+            }
+            else if (userGuess === "s" && randomItem === "p") {
+                win++
+                console.log("win", win);
+            }
+            else if (userGuess === "p" && randomItem === "s") {
+                loss++
+                console.log("loss", loss);
+            }
+        };
+
+    </script>
+    <p>User key imput:</p>
+    <p>Wins:</p>
+    <p>Tie:</p>
+    <p>Loss:</p>
+
+</body>
+</html>
