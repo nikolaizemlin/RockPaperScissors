@@ -9,7 +9,10 @@
 <body>
     <!-- We have to put this at the end of our document to ensure the user-text
              span exists when we try to access it. -->
-    <script type="text/javascript">
+             <div id="game">
+                <p>Press r, p or s to start playing!</p>
+              </div>
+   <script type="text/javascript">
         // Let's start by grabbing a reference to the <span> below.
         var userText = document.getElementById("user-text");
 
@@ -52,13 +55,19 @@
                 loss++
                 console.log("loss", loss);
             }
+            var html =
+              "<p>You chose: " + userGuess + "</p>" +
+              "<p>The computer chose: " + randomItem + "</p>" +
+              "<p>wins: " + win + "</p>" +
+              "<p>losses: " + loss + "</p>" +
+              "<p>ties: " + tie + "</p>";
+
+        // Set the inner HTML contents of the #game div to our html string
+        document.querySelector("#game").innerHTML = html;
+        
         };
 
     </script>
-    <p>User key imput:</p>
-    <p>Wins:</p>
-    <p>Tie:</p>
-    <p>Loss:</p>
-
+    
 </body>
 </html>
